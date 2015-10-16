@@ -5,6 +5,7 @@ kube-slave02      ansible_ssh_host=46.101.245.106
 
 [coreos:vars]
 ansible_ssh_user=core
+ansible_become=yes
 ansible_python_interpreter="PATH=/home/core/bin:$PATH python"
 
 [master]

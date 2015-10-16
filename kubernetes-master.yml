@@ -1,0 +1,11 @@
+---
+- hosts: master
+  tasks:
+  - name: create ssl dir
+    file: path=/etc/kubernetes/ssl state=directory owner=root group=root
+  - name: copy tsl certificates
+    copy: src=gen-certs/certs/{{ item }} dest=/etc/kubernetes/ssl/{{ item }} owner=root group=root mode=0400
+    with_items:
+      - ca.pem
+      - apiserver.pem
+      - apiserver-key.pem
