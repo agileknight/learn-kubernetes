@@ -1,2 +1,7 @@
 gen-certs:
   build: .
+  environment:
+    MASTER_HOST: TODO
+  volumes:
+    - ./certs:/opt/gen-certs/certs
+
