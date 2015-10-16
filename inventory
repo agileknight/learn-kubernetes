@@ -1,0 +1,12 @@
+[nodes]
+kube-master       ansible_ssh_host=46.101.131.69
+kube-slave01      ansible_ssh_host=46.101.193.33
+kube-slave02      ansible_ssh_host=46.101.245.106
+
+[master]
+kube-master
+
+[slaves]
+kube-slave01
+kube-slave02
+
