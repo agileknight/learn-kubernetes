@@ -7,7 +7,7 @@ EnvironmentFile=/etc/environment
 Environment=KUBELET_OPTS=
 
 ExecStart=/usr/bin/kubelet \
-  --api_servers=https://{{ master_host }}} \
+  --api_servers=https://{{ master_host }} \
   --register-node=true \
   --allow-privileged=true \
   --config=/etc/kubernetes/manifests \
