@@ -25,5 +25,15 @@
     copy: src=kubelet/kubelet.service.master dest=/etc/systemd/system/kubelet.service
   - name: create pod manifests dir
     file: path=/etc/kubernetes/manifests state=directory
-  - name: write apiserver pod manifest
+  - name: write kube apiserver pod manifest
     template: src=kubelet/kube-apiserver.yaml.j2 dest=/etc/kubernetes/manifests/kube-apiserver.yaml
+  - name: write kube proxy pod manifest
+    copy: src=kubelet/kube-proxy.yaml dest=/etc/kubernetes/manifests/kube-proxy.yaml
+  - name: write kube podmaster pod manifest
+    template: src=kubelet/kube-podmaster.yaml.j2 dest=/etc/kubernetes/manifests/kube-podmaster.yaml
+  - name: write kube controller manager pod manifest
+    copy: src=kubelet/kube-controller-manager.yaml dest=/etc/kubernetes/manifests/kube-controller-manager.yaml
+  - name: write kube scheduler pod manifest
+    copy: src=kubelet/kube-scheduler.yaml dest=/etc/kubernetes/manifests/kube-scheduler.yaml
+
+
