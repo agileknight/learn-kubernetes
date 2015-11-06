@@ -10,6 +10,7 @@ spec:
     image: gcr.io/google_containers/podmaster:1.1
     command:
     - /podmaster
+    - --etcd-servers=http://127.0.0.1:4001
     - --key=scheduler
     - --whoami={{ ansible_env.COREOS_PRIVATE_IPV4 }}
     - --source-file=/src/manifests/kube-scheduler.yaml
@@ -24,6 +25,7 @@ spec:
     image: gcr.io/google_containers/podmaster:1.1
     command:
     - /podmaster
+    - --etcd-servers=http://127.0.0.1:4001
     - --key=controller
     - --whoami={{ ansible_env.COREOS_PRIVATE_IPV4 }}
     - --source-file=/src/manifests/kube-controller-manager.yaml
