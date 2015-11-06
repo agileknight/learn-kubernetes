@@ -12,7 +12,7 @@
   - name: create flannel run dir
     file: path=/run/flannel state=directory
   - name: write flannel options
-    copy: src=flannel/options.env dest=/run/flannel/options.env
+    template: src=flannel/options.env.j2 dest=/run/flannel/options.env
   - name: create flannel unit drop-in dir
     file: path=/etc/systemd/system/flanneld.service.d state=directory
   - name: write flannel etcd config drop-in
