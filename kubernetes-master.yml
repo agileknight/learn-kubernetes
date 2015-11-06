@@ -26,4 +26,4 @@
   - name: create pod manifests dir
     file: path=/etc/kubernetes/manifests state=directory
   - name: write apiserver pod manifest
-    copy: src=kubelet/kube-apiserver.yaml dest=/etc/kubernetes/manifests/kube-apiserver.yaml
+    template: src=kubelet/kube-apiserver.yaml.j2 dest=/etc/kubernetes/manifests/kube-apiserver.yaml

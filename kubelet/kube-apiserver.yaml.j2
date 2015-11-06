@@ -15,7 +15,7 @@ spec:
     - --allow-privileged=true
     - --service-cluster-ip-range=10.3.0.0/24
     - --secure_port=443
-    - --advertise-address=${COREOS_PRIVATE_IPV4}
+    - --advertise-address={{ ansible_env.COREOS_PRIVATE_IPV4 }}
     - --admission-control=NamespaceLifecycle,NamespaceExists,LimitRanger,SecurityContextDeny,ServiceAccount,ResourceQuota
     - --tls-cert-file=/etc/kubernetes/ssl/apiserver.pem
     - --tls-private-key-file=/etc/kubernetes/ssl/apiserver-key.pem
