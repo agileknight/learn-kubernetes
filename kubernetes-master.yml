@@ -21,3 +21,5 @@
     file: path=/etc/systemd/system/docker.service.d state=directory
   - name: write docker flannel dependency drop-in
     copy: src=flannel/40-flannel.conf dest=/etc/systemd/system/docker.service.d/40-flannel.conf
+  - name: write kubelet unit file
+    copy: src=kubelet/kubelet.service.master dest=/etc/systemd/system/kubelet.service
