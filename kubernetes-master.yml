@@ -13,6 +13,10 @@
     file: path=/run/flannel state=directory
   - name: write flannel options
     copy: src=flannel/options.env dest=/run/flannel/options.env
+  - name: create flannel unit drop-in dir
+    file: path=/etc/systemd/system/flannel.service.d state=directory
+  - name: write flannel etcd config drop-in
+    copy: src=flannel/40-etcd-config.conf dest=/etc/systemd/system/docker.service.d/40-etcd-config.conf
   - name: create docker unit drop-in dir
     file: path=/etc/systemd/system/docker.service.d state=directory
   - name: write docker flannel dependency drop-in
