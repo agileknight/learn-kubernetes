@@ -23,3 +23,7 @@
     copy: src=flannel/40-flannel.conf dest=/etc/systemd/system/docker.service.d/40-flannel.conf
   - name: write kubelet unit file
     copy: src=kubelet/kubelet.service.master dest=/etc/systemd/system/kubelet.service
+  - name: create pod manifests dir
+    file: path=/etc/kubernetes/manifests state=directory
+  - name: write apiserver pod manifest
+    copy: src=kubelet/kube-apiserver.yaml dest=/etc/kubernetes/manifests/kube-apiserver.yaml
