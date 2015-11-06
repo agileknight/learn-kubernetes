@@ -9,3 +9,11 @@
       - ca.pem
       - apiserver.pem
       - apiserver-key.pem
+  - name: create flannel run dir
+    file: path=/run/flannel state=directory
+  - name: write flannel options
+    copy: src=flannel/options.env dest=/run/flannel/options.env
+  - name: create docker unit drop-in dir
+    file: path=/etc/systemd/system/docker.service.d state=directory
+  - name: write docker flannel dependency drop-in
+    copy: src=flannel/40-flannel.conf dest=/etc/systemd/system/docker.service.d/40-flannel.conf
